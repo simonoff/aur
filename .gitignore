@@ -7,3 +7,7 @@
 *.sig
 pkg/
 src/
+*.swp
+*~
+PaxHeader
+*.jar
