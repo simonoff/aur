@@ -6,21 +6,22 @@ post_install() {
   chown daapd:daapd $pkgdir/var/cache/forked-daapd
 
   cat <<EOF
-==> The following daemons may be added to DAEMONS in /etc/rc.conf:
-==> forked-daapd: daapd server for iTunes and SoundBridge
+==> forked-daapd can be started via systemctl:
+==> systemctl start forked-daapd
+
+==> forked-daapd can be autostart via systemctl:
+==> systemctl enable forked-daapd
 
 ==> forked-daapd.service has been added to your /etc/avahi/services
 
-==> Please edit /etc/forked-daapd.conf to suit your needs 
+==> Please edit /etc/forked-daapd.conf to suit your needs
 ==> (point it to your music library)
 EOF
 }
 
 pre_remove() {
-  #stop forked-daapd if running (ignoring errors)
-  /etc/rc.d/forked-daapd stop || true
-  
-  #should I delete /var/lib/forked-daapd ?
+  systemctl stop forked-daapd || true
+  systemctl disable forked-daapd || true
 }
 
 post_remove() {

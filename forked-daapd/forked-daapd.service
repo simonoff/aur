@@ -9,3 +9,6 @@ After=avahi-daemon.service remote-fs.target
 Type=forking
 ExecStart=/usr/sbin/forked-daapd
 Restart=always
+
+[Install]
+WantedBy=multi-user.target
