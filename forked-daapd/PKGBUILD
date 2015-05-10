@@ -55,7 +55,7 @@ build() {
   cd "$srcdir/$pkgname-$pkgver"
   echo $PATH
   autoreconf -i
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --enable-flac --enable-musepack --enable-itunes
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --enable-flac --enable-musepack --enable-itunes --sbindir=/usr/bin
   make
   export PATH=$OLD_PATH
 }
